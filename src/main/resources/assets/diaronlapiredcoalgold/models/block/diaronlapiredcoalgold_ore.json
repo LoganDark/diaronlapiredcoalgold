@@ -1,0 +1,12 @@
+{
+	"parent"   : "block/cube",
+	"textures" : {
+		"down"     : "blocks/lapis_ore",
+		"up"       : "blocks/redstone_ore",
+		"south"    : "blocks/iron_ore",
+		"north"    : "blocks/diamond_ore",
+		"west"     : "blocks/gold_ore",
+		"east"     : "blocks/coal_ore",
+		"particle" : "blocks/stone"
+	}
+}

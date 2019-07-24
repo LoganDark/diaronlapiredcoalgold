@@ -1,0 +1,79 @@
+buildscript {
+	repositories {
+		jcenter()
+		maven { url "http://files.minecraftforge.net/maven" }
+	}
+
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+	}
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.0"
+group = "net.logandark.mods"
+archivesBaseName = "diaronlapiredcoalgold"
+
+minecraft {
+	version = "1.12.2-14.23.5.2838"
+	runDir = "run"
+
+	// the mappings can be changed at any time, and must be in the following format.
+	// snapshot_YYYYMMDD   snapshot are built nightly.
+	// stable_#            stables are built at the discretion of the MCP team.
+	// Use non-default mappings at your own risk. they may not always work.
+	// simply re-run your setup task after changing the mappings to update your workspace.
+	mappings = "stable_39"
+	// makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+}
+
+processResources {
+	// this will ensure that this task is redone when the versions change.
+	inputs.property "version", project.version
+	inputs.property "mcversion", project.minecraft.version
+
+	// replace stuff in mcmod.info, nothing else
+	from(sourceSets.main.resources.srcDirs) {
+		include 'mcmod.info'
+
+		// replace version and mcversion
+		expand 'version': project.version, 'mcversion': project.minecraft.version
+	}
+
+	// copy everything else except the mcmod.info
+	from(sourceSets.main.resources.srcDirs) {
+		exclude 'mcmod.info'
+	}
+}
+
+def runCommand(List<String> command, List<Integer> acceptableExitValues = [0]) {
+	println("Running command: ${command.join(' ')}")
+
+	def proc = new ProcessBuilder(command).start()
+	proc.waitFor()
+	def exitValue = proc.exitValue()
+
+	if (acceptableExitValues.size() > 0 && !acceptableExitValues.contains(exitValue)) {
+		throw new GradleException(
+			"Command returned exit code ${exitValue}. Expected one of ${acceptableExitValues}." +
+				"\n\nCommand:\n$command"
+		)
+	}
+
+	return proc
+}
+
+task buildZip {
+	println("Generating build zip")
+
+	def commitHash = runCommand(["git", "rev-parse", "--short", "HEAD"]).text.trim()
+	def devStr = runCommand(["git", "diff-index", "--quiet", "HEAD", "--"], []).exitValue() == 1 ? "-DIRTY" : ""
+	def zipPath = "$distsDir/$archivesBaseName-$version-${commitHash + devStr}.zip"
+
+	runCommand(["mkdir", "-p", distsDir.toString()])
+	runCommand(["sh", "-c", "cd $libsDir && zip $zipPath *.jar".toString()], [0, 12])
+	println("Zip created at $zipPath")
+}
+
+build.finalizedBy(buildZip)

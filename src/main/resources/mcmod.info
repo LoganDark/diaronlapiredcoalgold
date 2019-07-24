@@ -1,0 +1,14 @@
+[
+	{
+		"modid"        : "diaronlapiredcoalgold",
+		"name"         : "Diaronlapiredcoalgold",
+		"description"  : "The ultimate Minecraft ore",
+		"version"      : "1.0",
+		"mcversion"    : "1.12.2",
+		"updateUrl"    : "",
+		"authorList"   : [ "LoganDark" ],
+		"credits"      : "https://www.youtube.com/watch?v=lwa3W79OSdw",
+		"requiredMods" : [],
+		"dependencies" : []
+	}
+]
