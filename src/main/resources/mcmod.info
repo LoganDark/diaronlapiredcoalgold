@@ -3,7 +3,7 @@
 		"modid"        : "diaronlapiredcoalgold",
 		"name"         : "Diaronlapiredcoalgold",
 		"description"  : "The ultimate Minecraft ore",
-		"version"      : "1.0",
+		"version"      : "1.0.1",
 		"mcversion"    : "1.12.2",
 		"updateUrl"    : "",
 		"authorList"   : [ "LoganDark" ],
