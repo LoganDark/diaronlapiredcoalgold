@@ -1,7 +1,8 @@
 package net.logandark.mods.diaronlapiredcoalgold.blocks;
 
 import net.logandark.mods.diaronlapiredcoalgold.Constants;
-import net.logandark.mods.diaronlapiredcoalgold.enums.EnumDiaronlapiredcoalgoldOreDrop;
+import net.logandark.mods.diaronlapiredcoalgold.enums.EnumDiaronlapiredcoalgoldDrop;
+import net.logandark.mods.diaronlapiredcoalgold.interfaces.IDiaronlapiredcoalgoldSidedDrops;
 import net.logandark.mods.diaronlapiredcoalgold.properties.PropertyDiaronlapiredcoalgoldOreDrop;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.SoundType;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BlockDiaronlapiredcoalgoldOre extends BlockOre {
+public class BlockDiaronlapiredcoalgoldOre extends BlockOre implements IDiaronlapiredcoalgoldSidedDrops {
 	private static BlockDiaronlapiredcoalgoldOre INSTANCE;
 
 	public static BlockDiaronlapiredcoalgoldOre getInstance() {
@@ -35,7 +36,7 @@ public class BlockDiaronlapiredcoalgoldOre extends BlockOre {
 		setSoundType(SoundType.STONE);
 		setTranslationKey(Constants.modid + ".diaronlapiredcoalgold_ore");
 		setRegistryName(new ResourceLocation(Constants.modid, "diaronlapiredcoalgold_ore"));
-		setDefaultState(getBlockState().getBaseState().withProperty(PropertyDiaronlapiredcoalgoldOreDrop.getInstance(), EnumDiaronlapiredcoalgoldOreDrop.DROP_NONE));
+		setDefaultState(getBlockState().getBaseState().withProperty(PropertyDiaronlapiredcoalgoldOreDrop.getInstance(), EnumDiaronlapiredcoalgoldDrop.DROP_NONE));
 	}
 
 	@Nonnull
@@ -53,18 +54,18 @@ public class BlockDiaronlapiredcoalgoldOre extends BlockOre {
 	@Nonnull
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(PropertyDiaronlapiredcoalgoldOreDrop.getInstance(), EnumDiaronlapiredcoalgoldOreDrop.values()[meta]);
+		return getDefaultState().withProperty(PropertyDiaronlapiredcoalgoldOreDrop.getInstance(), EnumDiaronlapiredcoalgoldDrop.values()[meta]);
 	}
 
 	@Nonnull
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return state.getValue(PropertyDiaronlapiredcoalgoldOreDrop.getInstance()).item;
+		return state.getValue(PropertyDiaronlapiredcoalgoldOreDrop.getInstance()).itemDrop;
 	}
 
 	@Override
 	public int damageDropped(IBlockState state) {
-		return state.getValue(PropertyDiaronlapiredcoalgoldOreDrop.getInstance()).damage;
+		return state.getValue(PropertyDiaronlapiredcoalgoldOreDrop.getInstance()).itemDamage;
 	}
 
 	@Override

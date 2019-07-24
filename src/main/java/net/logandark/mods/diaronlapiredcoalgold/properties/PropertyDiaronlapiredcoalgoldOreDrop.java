@@ -1,14 +1,14 @@
 package net.logandark.mods.diaronlapiredcoalgold.properties;
 
 import com.google.common.base.Optional;
-import net.logandark.mods.diaronlapiredcoalgold.enums.EnumDiaronlapiredcoalgoldOreDrop;
+import net.logandark.mods.diaronlapiredcoalgold.enums.EnumDiaronlapiredcoalgoldDrop;
 import net.minecraft.block.properties.PropertyHelper;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class PropertyDiaronlapiredcoalgoldOreDrop extends PropertyHelper<EnumDiaronlapiredcoalgoldOreDrop> {
+public class PropertyDiaronlapiredcoalgoldOreDrop extends PropertyHelper<EnumDiaronlapiredcoalgoldDrop> {
 	private static PropertyDiaronlapiredcoalgoldOreDrop INSTANCE;
 
 	public static PropertyDiaronlapiredcoalgoldOreDrop getInstance() {
@@ -20,25 +20,25 @@ public class PropertyDiaronlapiredcoalgoldOreDrop extends PropertyHelper<EnumDia
 	}
 
 	private PropertyDiaronlapiredcoalgoldOreDrop() {
-		super("dilrcgo_ore_drop", EnumDiaronlapiredcoalgoldOreDrop.class);
+		super("dilrcgo_ore_drop", EnumDiaronlapiredcoalgoldDrop.class);
 	}
 
 	@Nonnull
 	@Override
-	public Collection<EnumDiaronlapiredcoalgoldOreDrop> getAllowedValues() {
-		return Arrays.asList(EnumDiaronlapiredcoalgoldOreDrop.values());
+	public Collection<EnumDiaronlapiredcoalgoldDrop> getAllowedValues() {
+		return Arrays.asList(EnumDiaronlapiredcoalgoldDrop.values());
 	}
 
 	@SuppressWarnings("Guava")
 	@Nonnull
 	@Override
-	public Optional<EnumDiaronlapiredcoalgoldOreDrop> parseValue(@Nonnull String value) {
-		return Optional.of(EnumDiaronlapiredcoalgoldOreDrop.valueOf(value.toUpperCase()));
+	public Optional<EnumDiaronlapiredcoalgoldDrop> parseValue(@Nonnull String value) {
+		return Optional.of(EnumDiaronlapiredcoalgoldDrop.valueOf(value.toUpperCase()));
 	}
 
 	@Nonnull
 	@Override
-	public String getName(@Nonnull EnumDiaronlapiredcoalgoldOreDrop value) {
+	public String getName(@Nonnull EnumDiaronlapiredcoalgoldDrop value) {
 		return value.name().toLowerCase();
 	}
 }
