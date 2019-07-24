@@ -72,6 +72,7 @@ task buildZip {
 	def zipPath = "$distsDir/$archivesBaseName-$version-${commitHash + devStr}.zip"
 
 	runCommand(["mkdir", "-p", distsDir.toString()])
+	runCommand(["rm", "-f", zipPath.toString()])
 	runCommand(["sh", "-c", "cd $libsDir && zip $zipPath *.jar".toString()], [0, 12])
 	println("Zip created at $zipPath")
 }
