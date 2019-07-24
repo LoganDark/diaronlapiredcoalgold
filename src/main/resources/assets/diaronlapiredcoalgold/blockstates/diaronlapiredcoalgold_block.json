@@ -1,0 +1,17 @@
+{
+	"forge_marker" : 1,
+	"defaults"     : {
+		"model" : "diaronlapiredcoalgold:diaronlapiredcoalgold_block"
+	},
+	"variants"     : {
+		"dilrcgo_ore_drop" : {
+			"drop_none"     : { },
+			"drop_lapis"    : { },
+			"drop_redstone" : { },
+			"drop_iron"     : { },
+			"drop_diamond"  : { },
+			"drop_gold"     : { },
+			"drop_coal"     : { }
+		}
+	}
+}

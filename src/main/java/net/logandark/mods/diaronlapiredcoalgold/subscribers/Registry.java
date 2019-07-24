@@ -1,8 +1,10 @@
 package net.logandark.mods.diaronlapiredcoalgold.subscribers;
 
 import net.logandark.mods.diaronlapiredcoalgold.Constants;
+import net.logandark.mods.diaronlapiredcoalgold.blocks.BlockDiaronlapiredcoalgoldBlock;
 import net.logandark.mods.diaronlapiredcoalgold.blocks.BlockDiaronlapiredcoalgoldOre;
 import net.logandark.mods.diaronlapiredcoalgold.generators.GeneratorDiaronlapiredcoalgoldOre;
+import net.logandark.mods.diaronlapiredcoalgold.items.ItemBlockDiaronlapiredcoalgoldBlock;
 import net.logandark.mods.diaronlapiredcoalgold.items.ItemBlockDiaronlapiredcoalgoldOre;
 import net.logandark.mods.diaronlapiredcoalgold.items.ItemDiaronlapiredcoalgoldIngot;
 import net.minecraft.block.Block;
@@ -27,11 +29,13 @@ public class Registry {
 
 	private static void addBlocks() {
 		blocks.add(BlockDiaronlapiredcoalgoldOre.getInstance());
+		blocks.add(BlockDiaronlapiredcoalgoldBlock.getInstance());
 	}
 
 	private static void addItems() {
 		items.add(ItemBlockDiaronlapiredcoalgoldOre.getInstance());
 		items.add(ItemDiaronlapiredcoalgoldIngot.getInstance());
+		items.add(ItemBlockDiaronlapiredcoalgoldBlock.getInstance());
 	}
 
 	@SubscribeEvent

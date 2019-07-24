@@ -1,0 +1,16 @@
+{
+	"type"    : "minecraft:crafting_shaped",
+	"pattern" : [
+		"III",
+		"III",
+		"III"
+	],
+	"key"     : {
+		"I" : {
+			"item" : "diaronlapiredcoalgold:diaronlapiredcoalgold_ingot"
+		}
+	},
+	"result"  : {
+		"item" : "diaronlapiredcoalgold:diaronlapiredcoalgold_block"
+	}
+}

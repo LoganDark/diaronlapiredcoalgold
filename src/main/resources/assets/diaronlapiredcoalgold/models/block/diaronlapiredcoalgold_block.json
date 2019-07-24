@@ -1,0 +1,12 @@
+{
+	"parent"   : "block/cube",
+	"textures" : {
+		"down"     : "blocks/lapis_block",
+		"up"       : "blocks/redstone_block",
+		"south"    : "blocks/iron_block",
+		"north"    : "blocks/diamond_block",
+		"west"     : "blocks/gold_block",
+		"east"     : "blocks/coal_block",
+		"particle" : "diaronlapiredcoalgold:particles/diaronlapiredcoalgold_block"
+	}
+}
