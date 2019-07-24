@@ -33,7 +33,7 @@ public class BlockDiaronlapiredcoalgoldOre extends BlockOre {
 		setHardness(3F);
 		setResistance(5F);
 		setSoundType(SoundType.STONE);
-		setTranslationKey("diaronlapiredcoalgold_ore");
+		setTranslationKey(Constants.modid + ".diaronlapiredcoalgold_ore");
 		setRegistryName(new ResourceLocation(Constants.modid, "diaronlapiredcoalgold_ore"));
 		setDefaultState(getBlockState().getBaseState().withProperty(PropertyDiaronlapiredcoalgoldOreDrop.getInstance(), EnumDiaronlapiredcoalgoldOreDrop.DROP_NONE));
 	}

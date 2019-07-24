@@ -19,7 +19,7 @@ public class ItemDiaronlapiredcoalgoldIngot extends Item {
 	private ItemDiaronlapiredcoalgoldIngot() {
 		super();
 
-		setTranslationKey("diaronlapiredcoalgold_ingot");
+		setTranslationKey(Constants.modid + ".diaronlapiredcoalgold_ingot");
 		setRegistryName(new ResourceLocation(Constants.modid, "diaronlapiredcoalgold_ingot"));
 		setCreativeTab(CreativeTabs.MATERIALS);
 	}
